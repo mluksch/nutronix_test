@@ -20,5 +20,12 @@ def create_row(**kwargs):
         "Authorization": f"Bearer {config.SHEETY_TOKEN}"
     })
     res.raise_for_status()
-    print(res.json())
+    return res.json()
+
+
+def get_rows():
+    res = requests.get(BASE_URL, headers={
+        "Authorization": f"Bearer {config.SHEETY_TOKEN}"
+    })
+    res.raise_for_status()
     return res.json()
