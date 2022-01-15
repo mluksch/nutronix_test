@@ -1,6 +1,6 @@
-import os
-
 import requests
+
+import config
 
 BASE_URL = "https://trackapi.nutritionix.com/v2"
 
@@ -18,8 +18,8 @@ def analyze_exercise(input: str):
     """
     url = f"{BASE_URL}/natural/exercise"
     headers = {
-        "x-app-id": os.getenv("APP_ID"),
-        "x-app-key": os.getenv("APP_SECRET")
+        "x-app-id": config.APP_ID,
+        "x-app-key": config.APP_SECRET
     }
     res = requests.post(url, json={
         "query": input
